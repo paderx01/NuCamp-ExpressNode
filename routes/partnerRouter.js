@@ -12,16 +12,16 @@ partnerRouter
   .get((req, res) => {
     res.end("Will send all the partners to you");
   })
-  .post(authenticate.verifyUser, (req, res) => {
+  .post(authenticate.verifyAdmin, (req, res) => {
     res.end(
       `Will add the partners: ${req.body.name} with description: ${req.body.description}`
     );
   })
-  .put(authenticate.verifyUser, (req, res, next) => {
+  .put(authenticate.verifyAdmin, (req, res, next) => {
     res.statusCode = 403;
     res.end("PUT operation not supported on /partners");
   })
-  .delete(authenticate.verifyUser, (req, res) => {
+  .delete(authenticate.verifyAdmin, (req, res) => {
     res.end("Deleting all partners");
   });
 
@@ -35,16 +35,16 @@ partnerRouter
   .get((req, res) => {
     res.end("Will send all the partners to you");
   })
-  .post(authenticate.verifyUser, (req, res, next) => {
+  .post(authenticate.verifyAdmin, (req, res, next) => {
     res.end(
       `Will add the partners: ${req.body.name} with description: ${req.body.description}`
     );
   })
-  .put(authenticate.verifyUser, (req, res, next) => {
+  .put(authenticate.verifyAdmin, (req, res, next) => {
     res.statusCode = 403;
     res.end("PUT operation not supported on /partners");
   })
-  .delete(authenticate.verifyUser, (req, res, next) => {
+  .delete(authenticate.verifyAdmin, (req, res, next) => {
     res.end("Deleting all partners");
   });
 
